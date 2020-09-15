@@ -15,6 +15,9 @@ function ValidateIPaddress(ipaddress) {
 
 const handler = async (req, res) => {
   try {
+    loadEnv()
+    initDB(getDBUrl())
+
     const {name} = req.body
     const ip =
       req.headers['x-forwarded-for'] ||
@@ -30,10 +33,6 @@ const handler = async (req, res) => {
     if(asis){
       throw Error('Duplicate user')
     }
-
-    loadEnv()
-    initDB(getDBUrl())
-
     await User.create({ name, ip })
     res.json({
       status: 'ok',
