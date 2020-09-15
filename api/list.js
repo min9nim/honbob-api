@@ -11,7 +11,7 @@ const handler = async (req, res) => {
     const docs = await User.find().lean()
     res.json({
       status: 'ok',
-      result: omit(['createdAt', '__v'], docs),
+      result: docs.map(omit(['createdAt', '__v'])),
     })
   } catch (e) {
     res.json({
