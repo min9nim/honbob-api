@@ -1,0 +1,6 @@
+.vercel
+.idea
+node_modules
+yarn.lock
+.env
+yarn-error.log
