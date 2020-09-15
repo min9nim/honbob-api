@@ -13,6 +13,9 @@ const handler = async (req, res) => {
       req.socket.remoteAddress ||
       (req.connection.socket ? req.connection.socket.remoteAddress : null)
     await User.create({ name: req.body.name, ip })
+    res.json({
+      status: 'ok'
+    })
   } catch (e) {
     res.json({
       status: 'failed',
