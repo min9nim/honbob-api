@@ -29,9 +29,6 @@ function getDBUrl () {
   const { VERCEL_GITHUB_COMMIT_REF, DB_URL } = process.env
   let dburl = DB_URL
   logger.verbose('NOW_GITHUB_COMMIT_REF = ' + VERCEL_GITHUB_COMMIT_REF)
-  // if (VERCEL_GITHUB_COMMIT_REF === 'master') {
-  //   dburl = DB_URL
-  // }
 
   logger.info('dburl = ' + dburl)
 
