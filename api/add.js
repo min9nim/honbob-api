@@ -14,8 +14,6 @@ function ValidateIPaddress(ipaddress) {
 }
 
 const handler = async (req, res) => {
-  loadEnv()
-  initDB(getDBUrl())
   try {
     const ip =
       req.headers['x-forwarded-for'] ||
@@ -26,6 +24,9 @@ const handler = async (req, res) => {
     if (!ValidateIPaddress(ip)) {
       throw Error('Invalid IP')
     }
+
+    loadEnv()
+    initDB(getDBUrl())
 
     await User.create({ name: req.body.name, ip })
     res.json({
