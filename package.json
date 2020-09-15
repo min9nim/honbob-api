@@ -1,0 +1,26 @@
+{
+  "name": "honbob-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "vercel dev",
+    "reformat": "prettier --write",
+    "test": "mocha ./src/**/*.spec.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "if-logger": "^0.12.5",
+    "mingutils": "^0.5.0",
+    "moment": "^2.27.0",
+    "mongoose": "^5.10.2",
+    "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.13",
+    "mocha": "^8.1.3",
+    "prettier": "^2.1.1"
+  }
+}
