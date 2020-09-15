@@ -15,6 +15,7 @@ function ValidateIPaddress(ipaddress) {
 
 const handler = async (req, res) => {
   try {
+    const {name} = req.body
     const ip =
       req.headers['x-forwarded-for'] ||
       req.connection.remoteAddress ||
@@ -25,10 +26,15 @@ const handler = async (req, res) => {
       throw Error('Invalid IP')
     }
 
+    const asis = await User.findOne({ip, name}).lean()
+    if(asis){
+      throw Error('Duplicate user')
+    }
+
     loadEnv()
     initDB(getDBUrl())
 
-    await User.create({ name: req.body.name, ip })
+    await User.create({ name, ip })
     res.json({
       status: 'ok',
     })
