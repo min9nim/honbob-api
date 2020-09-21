@@ -9,6 +9,7 @@
     "test": "mocha ./src/**/*.spec.js"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "if-logger": "^0.12.5",
     "mingutils": "^0.5.0",
